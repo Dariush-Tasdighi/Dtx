@@ -1,12 +1,11 @@
 ﻿namespace Dtx.IO
 {
-	/// <summary>
-	/// Version: 1.0.1
-	/// Update Date: 1392/11/08
-	/// Developer: Mr. Dariush Tasdighi
-	/// </summary>
 	public static class Directory
 	{
+		static Directory()
+		{
+		}
+
 		/// <summary>
 		/// Add the tag (<identity impersonate="true"/>) in your web.config file.
 		/// </summary>
@@ -14,8 +13,8 @@
 		{
 			try
 			{
-				System.Security.AccessControl.DirectorySecurity oDirectorySecurity =
-					System.IO.Directory.GetAccessControl(path);
+				System.Security.AccessControl.DirectorySecurity
+					oDirectorySecurity = System.IO.Directory.GetAccessControl(path);
 
 				// Using this instead of the "Everyone"
 				// string means we work on non-English systems.
