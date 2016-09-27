@@ -44,7 +44,7 @@
     <Compile Include="Calendar\Utility.cs" />
     <Compile Include="Calendar\Year.cs" />
     <Compile Include="DateTime.cs" />
-    <Compile Include="Enums\TextCase.cs" />
+    <Compile Include="Enums\TextCases.cs" />
     <Compile Include="Generic\Result.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="ICommandHolder.cs" />
@@ -70,6 +70,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Random.cs" />
     <Compile Include="Security\Hashing.cs" />
+    <Compile Include="Security\Utility.cs" />
     <Compile Include="String.cs" />
     <Compile Include="Text\Convert.cs" />
     <Compile Include="Text\RegularExpressions\Patterns.cs" />
