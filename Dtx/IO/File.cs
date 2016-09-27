@@ -6,16 +6,30 @@
 		{
 		}
 
-		public static string Read(string pathName)
+		public static Generic.Result<string> Read(string pathName)
 		{
+			Generic.Result<string> oResult = new Generic.Result<string>();
+
 			if (Dtx.String.IsNullOrEmptyOrWhiteSpace(pathName))
 			{
-				return (string.Empty);
+				ApplicationException oApplicationException =
+					new ApplicationException(message: Resources.Messages.ErrorMessage001, number: 1);
+
+				oResult.Success = false;
+				oResult.Exception = oApplicationException;
+
+				return (oResult);
 			}
 
 			if (System.IO.File.Exists(pathName) == false)
 			{
-				return (string.Empty);
+				ApplicationException oApplicationException =
+					new ApplicationException(message: Resources.Messages.ErrorMessage002, number: 2);
+
+				oResult.Success = false;
+				oResult.Exception = oApplicationException;
+
+				return (oResult);
 			}
 
 			string strResult = string.Empty;
@@ -29,9 +43,18 @@
 						(path: pathName, encoding: System.Text.Encoding.UTF8);
 
 				strResult = oStream.ReadToEnd();
+
+				oResult.Success = false;
+				oResult.Data = strResult;
+
+				return (oResult);
 			}
-			catch
+			catch (System.Exception ex)
 			{
+				oResult.Success = false;
+				oResult.Exception = ex;
+
+				return (oResult);
 			}
 			finally
 			{
@@ -42,15 +65,21 @@
 					oStream = null;
 				}
 			}
-
-			return (strResult);
 		}
 
-		public static bool Write(string pathName, string text, bool append)
+		public static Result Write(string pathName, string text, bool append)
 		{
+			Result oResult = new Result();
+
 			if (Dtx.String.IsNullOrEmptyOrWhiteSpace(pathName))
 			{
-				return (false);
+				ApplicationException oApplicationException =
+					new ApplicationException(message: Resources.Messages.ErrorMessage001, number: 1);
+
+				oResult.Success = false;
+				oResult.Exception = oApplicationException;
+
+				return (oResult);
 			}
 
 			if (text == null)
@@ -68,11 +97,16 @@
 
 				oStream.Write(text);
 
-				return (true);
+				oResult.Success = true;
+
+				return (oResult);
 			}
-			catch
+			catch (System.Exception ex)
 			{
-				return (false);
+				oResult.Success = false;
+				oResult.Exception = ex;
+
+				return (oResult);
 			}
 			finally
 			{
@@ -85,12 +119,12 @@
 			}
 		}
 
-		public static bool Append(string pathName, string text)
+		public static Result Append(string pathName, string text)
 		{
 			return (Write(pathName, text, append: true));
 		}
 
-		public static bool Overwrite(string pathName, string text)
+		public static Result Overwrite(string pathName, string text)
 		{
 			return (Write(pathName, text, append: false));
 		}

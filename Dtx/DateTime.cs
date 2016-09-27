@@ -6,7 +6,10 @@
 		{
 		}
 
-		public static System.DateTime MinValueForDatabase
+		/// <summary>
+		/// Suitable for sql server
+		/// </summary>
+		public static System.DateTime MinValue
 		{
 			get
 			{

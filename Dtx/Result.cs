@@ -1,8 +1,8 @@
 ﻿namespace Dtx
 {
-	public class FunctionResult : object
+	public class Result : object
 	{
-		public FunctionResult()
+		public Result()
 		{
 		}
 

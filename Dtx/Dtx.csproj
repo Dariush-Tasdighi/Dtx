@@ -35,10 +35,33 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationException.cs" />
     <Compile Include="ApplicationSettings.cs" />
+    <Compile Include="Calendar\Convert.cs" />
+    <Compile Include="Calendar\Day.cs" />
+    <Compile Include="Calendar\Month.cs" />
+    <Compile Include="Calendar\PersianDate.cs" />
+    <Compile Include="Calendar\Utility.cs" />
+    <Compile Include="Calendar\Year.cs" />
     <Compile Include="DateTime.cs" />
     <Compile Include="Enums\TextCase.cs" />
-    <Compile Include="FunctionResult.cs" />
+    <Compile Include="Generic\Result.cs" />
+    <Compile Include="ICommand.cs" />
+    <Compile Include="ICommandHolder.cs" />
+    <Compile Include="Math.cs" />
+    <Compile Include="Parser.cs" />
+    <Compile Include="Mapper.cs" />
+    <Compile Include="Resources\Captions.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Captions.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Result.cs" />
     <Compile Include="Globalization\CultureInfo.cs" />
     <Compile Include="Globalization\Enums\Cultures.cs" />
     <Compile Include="Guid.cs" />
@@ -48,6 +71,19 @@
     <Compile Include="Random.cs" />
     <Compile Include="Security\Hashing.cs" />
     <Compile Include="String.cs" />
+    <Compile Include="Text\Convert.cs" />
+    <Compile Include="Text\RegularExpressions\Patterns.cs" />
+    <Compile Include="Text\Utility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Captions.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Captions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Messages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
